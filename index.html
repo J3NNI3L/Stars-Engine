@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Starz Search Mini-Engine</title>
+    <title>Starz</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
@@ -80,7 +80,7 @@
             color: #cccccc;
         }
         
-        /* --- Custom Theme: Golden (DEV MODE ONLY) --- */
+        /* --- Custom Theme: Golden (CODE MODE ONLY) --- */
         body.golden-theme {
             background-color: #0d121c; /* Dark navy background */
             color: #fff;
@@ -312,8 +312,8 @@
             
             <div class="absolute top-0 left-0 pt-2 pl-4 text-sm font-semibold text-gray-700 dark:text-gray-300" id="live-clock"></div>
             
-            <div class="text-4xl font-extrabold text-indigo-700 dark:text-indigo-400">Starz Search</div>
-            <p class="text-gray-500 mt-2">A mini-engine powered by real-time web knowledge.</p>
+            <div class="text-4xl font-extrabold text-indigo-700 dark:text-indigo-400">Starz</div>
+            <p class="text-gray-500 mt-2">Not on Steam!</p>
             
             <div class="absolute top-0 right-0 flex space-x-2">
                 
@@ -340,7 +340,7 @@
                 onclick="resetToSearch()"
                 class="mb-4 px-4 py-2 bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-200 font-semibold rounded-lg shadow-sm hover:bg-gray-300 dark:hover:bg-gray-500 transition duration-300 ease-in-out"
             >
-                ← Back to Search
+                ← Back to Home
             </button>
             <div class="h-full border border-gray-300 dark:border-gray-600 rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-800 relative">
                 <iframe 
@@ -424,12 +424,12 @@
         <div id="dev-panel" class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700 hidden animate-fade-in">
             <h3 class="text-xl font-bold text-red-600 dark:text-red-400 mb-4 flex items-center">
                 <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
-                Developer Panel: GOLD STATUS
+                Panel: DEV STATUS
             </h3>
             <div class="space-y-3">
                 <p class="text-sm text-gray-700 dark:text-gray-300">Welcome, Developer! Your custom ID has been activated. You now have access to the **Golden Theme** in settings.</p>
                 <button class="px-4 py-2 bg-red-600 text-white font-semibold rounded-lg shadow-md hover:bg-red-700 transition duration-300 ease-in-out">
-                    Access Debug Logs (Simulated)
+                    Access Debug Logs (WIP)
                 </button>
                 <button onclick="localStorage.clear(); location.reload();" class="px-4 py-2 bg-gray-500 text-white font-semibold rounded-lg shadow-md hover:bg-gray-600 transition duration-300 ease-in-out">
                     Clear Local Storage (Hard Reset)
@@ -451,7 +451,7 @@
         <div class="mt-8 border-t border-gray-200 dark:border-gray-700 pt-6">
             <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-4 flex items-center">
                 <svg class="w-6 h-6 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                Games & Utilities
+                Games
             </h3>
             <div id="games-section" class="grid grid-cols-2 gap-4 sm:grid-cols-4">
                 <a href="javascript:void(0)" onclick="openGameInternally('cloudmoonapp.com')" class="p-3 text-center bg-gray-100 rounded-xl hover:bg-green-100 transition duration-300 ease-in-out border border-gray-200 text-sm font-medium text-gray-700 hover:text-green-800 shadow-sm dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-green-900">
@@ -473,7 +473,7 @@
                     Cool Math Games
                 </a>
                 <a href="javascript:void(0)" onclick="openNotepad()" class="p-3 text-center bg-gray-100 rounded-xl hover:bg-indigo-100 transition duration-300 ease-in-out border border-gray-200 text-sm font-medium text-gray-700 hover:text-indigo-800 shadow-sm dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-indigo-900">
-                    In-Page Notepad 📝
+                    Notepad 📝
                 </a>
             </div>
         </div>
@@ -484,7 +484,7 @@
                     <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                     <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                 </svg>
-                <span>Searching the web...</span>
+                <span>Searching...</span>
             </div>
         </div>
 
@@ -498,46 +498,48 @@
                 <p class="text-sm font-semibold text-gray-700 dark:text-gray-300">Was this result helpful? Rate it!</p>
                 <div class="flex space-x-2">
                     <button onclick="submitFeedback('like')" title="Upvote (+10 Points)" class="p-2 bg-green-500 text-white rounded-full hover:bg-green-600 transition duration-300 transform hover:scale-110">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-7.012a2 2 0 01-1.789-2.894l3.5-7A2 2 0 0110.764 10h4.764zm-1.5 0H10a2 2 0 01-1.789-2.894l3.5-7A2 2 0 0113.264 3h7.012a2 2 0 011.789 2.894l-3.5 7A2 2 0 0117.264 10h-1.5z"></path></svg>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0...
                     </button>
                     <button onclick="submitFeedback('dislike')" title="Downvote (-2 Points)" class="p-2 bg-red-500 text-white rounded-full hover:bg-red-600 transition duration-300 transform hover:scale-110">
-                        <svg class="w-5 h-5 transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-7.012a2 2 0 01-1.789-2.894l3.5-7A2 2 0 0110.764 10h4.764zm-1.5 0H10a2 2 0 01-1.789-2.894l3.5-7A2 2 0 0113.264 3h7.012a2 2 0 011.789 2.894l-3.5 7A2 2 0 0117.264 10h-1.5z"></path></svg>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14H5.236a2 2 0 01-1.789-2.894l3.5-7A2 2 0 017.764 4h7.585m-1.25 10l-1.6 2.5a2 2 0 00.17 2.94l1.192 1.341a.5.5 0 00.865-.38V14z"></path></svg>
                     </button>
                 </div>
             </div>
+            
             <div id="feedback-message" class="mt-2 text-sm font-medium text-center text-green-600 dark:text-green-400 hidden animate-fade-in"></div>
+
             <div class="mt-6">
                 <h3 class="text-sm font-semibold uppercase text-gray-500 dark:text-gray-400 mb-2">Sources</h3>
                 <ul id="sources-list" class="space-y-2 text-sm">
-                    </ul>
+                </ul>
             </div>
         </div>
 
         <div id="error-message" class="hidden mt-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg dark:bg-red-900 dark:border-red-700 dark:text-red-200 animate-fade-in">
             An error occurred. Please try again.
         </div>
-
     </div>
-
+    
     <div id="notepad-modal-overlay" class="fixed inset-0 bg-gray-900 bg-opacity-75 z-40 hidden" onclick="closeNotepad()"></div>
     <div id="notepad-modal" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-xl bg-white p-6 sm:p-8 rounded-xl shadow-2xl z-50 hidden dark:bg-gray-800 animate-scale-up">
-        
         <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white mb-6 border-b pb-4 flex justify-between items-center">
             My Notes 📝
             <button onclick="closeNotepad()" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
         </h2>
-
-        <textarea id="notepad-text-area" rows="15" placeholder="Write down your search ideas, secret gold IDs, or reminders here. Your notes are saved automatically!"
+        <textarea 
+            id="notepad-text-area" 
+            rows="15" 
+            placeholder="Write down your search ideas, secret gold IDs, or reminders here. Your notes are saved automatically!" 
             class="w-full p-4 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 shadow-inner dark:bg-gray-700 dark:border-gray-600 dark:text-white resize-none"
             oninput="saveNotepadContent()"
         ></textarea>
-        <p class="text-xs text-gray-500 dark:text-gray-400 mt-2 text-right">Saved automatically to your browser.</p>
+        <p class="text-xs text-gray-500 dark:text-gray-400 mt-2">Notes are saved automatically to your local device.</p>
     </div>
+
     <div id="settings-modal-overlay" class="fixed inset-0 bg-gray-900 bg-opacity-75 z-40 hidden" onclick="closeSettings()"></div>
-    <div id="settings-modal" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-xl bg-white p-6 sm:p-8 rounded-xl shadow-2xl z-50 hidden dark:bg-gray-800 animate-scale-up">
-        
+    <div id="settings-modal" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-lg bg-white p-6 sm:p-8 rounded-xl shadow-2xl z-50 hidden dark:bg-gray-800 animate-scale-up">
         <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white mb-6 border-b pb-4 flex justify-between items-center">
             Settings
             <button onclick="closeSettings()" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
@@ -545,55 +547,39 @@
             </button>
         </h2>
 
-        <div class="space-y-6 max-h-[80vh] overflow-y-auto pr-2">
-            
-            <div class="p-4 bg-yellow-50 dark:bg-yellow-900 border-l-4 border-yellow-500 rounded-r-lg shadow-sm flex justify-between items-center animate-fade-in">
-                <h3 class="text-xl font-bold text-yellow-800 dark:text-yellow-200">
-                    <span id="premium-badge" class="hidden mr-2 text-xs font-extrabold bg-indigo-600 text-white px-2 py-1 rounded-full uppercase">PREMIUM</span>
-                    Your Points:
-                </h3>
-                <p id="points-display" class="text-3xl font-extrabold text-indigo-700 dark:text-yellow-400">100</p>
-            </div>
-
-            <div class="p-4 bg-blue-50 dark:bg-blue-900 border-l-4 border-blue-500 rounded-r-lg shadow-sm animate-fade-in">
-                <h3 class="text-lg font-bold text-blue-800 dark:text-blue-200 mb-2">Your Profile</h3>
-                <p class="text-sm text-gray-700 dark:text-gray-300">User ID: <span id="user-id-display" class="font-mono font-semibold">...</span></p>
-                <p id="dev-status-message" class="text-sm font-medium mt-1">Status: <span class="text-gray-500 font-normal">Disabled</span></p>
-            </div>
+        <div class="space-y-6 max-h-[70vh] overflow-y-auto pr-3">
             
             <div class="pb-4 border-b border-gray-200 dark:border-gray-700">
-                <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-2">Developer Mode Access</h3>
-                <div class="flex space-x-2">
-                    <input type="text" id="custom-dev-id-input" placeholder="Enter GOLD ID" maxlength="20"
-                        class="flex-grow p-2 border border-gray-300 rounded-lg shadow-sm dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-                    >
-                    <button onclick="applyCustomId()" class="px-4 py-2 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition duration-300 ease-in-out"
-                    >
-                        Activate
-                    </button>
-                </div>
+                <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-2">User Profile</h3>
+                <p class="text-sm text-gray-700 dark:text-gray-300">User ID: <span id="user-id-display" class="font-mono bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded">...</span></p>
+                <p class="text-sm text-gray-700 dark:text-gray-300 mt-1">Current Points: <span id="points-display" class="font-bold text-indigo-600 dark:text-indigo-400">...</span></p>
             </div>
 
             <div class="pb-4 border-b border-gray-200 dark:border-gray-700">
-                <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-2">Music Player (Spotify)</h3>
+                <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-2">Music Player (YouTube Music)</h3>
                 <p id="music-player-status" class="text-sm text-gray-500 dark:text-gray-400 mb-3">Status: Not playing</p>
-                <div class="flex space-x-2">
-                    <input type="text" id="spotify-search-input" placeholder="Paste Spotify Track/Playlist URL or ID"
-                        class="flex-grow p-2 border border-gray-300 rounded-lg shadow-sm dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-                    >
-                    <button onclick="startSpotifyPlayer()" class="px-4 py-2 bg-green-600 text-white font-semibold rounded-lg shadow-md hover:bg-green-700 transition duration-300 ease-in-out"
-                    >
-                        ▶ Load Player
-                    </button>
+                
+                <div id="musicPlayerControl" class="flex flex-col space-y-4">
+                    <div class="flex space-x-2">
+                        <input type="text" id="musicUrlInput" class="flex-grow p-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-150 dark:bg-gray-700 dark:border-gray-600 dark:text-white" 
+                               placeholder="Paste YouTube Video/Playlist URL or ID (e.g., PL... or M7lc1UVf-VE)">
+                        <button onclick="loadYouTubePlayer()" 
+                                class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition duration-150 shadow-md font-semibold">
+                            Load Music
+                        </button>
+                    </div>
+                    
+                    <div id="playerEmbedContainer" class="w-full mt-4 rounded-lg overflow-hidden min-h-[80px] border border-gray-300 dark:border-gray-700">
+                        <p id="playerPlaceholder" class="text-center text-gray-500 py-10">
+                            Enter a YouTube URL or ID above to start listening.
+                        </p>
+                    </div>
                 </div>
-                <div id="spotify-player-embed" class="mt-4 rounded-lg overflow-hidden min-h-[80px] border border-gray-300 dark:border-gray-700">
                 </div>
-            </div>
-            
+
             <div class="pb-4 border-b border-gray-200 dark:border-gray-700">
                 <label for="theme-selector" class="block text-lg font-bold text-gray-800 dark:text-white mb-2">Custom Theme</label>
-                <select id="theme-selector" onchange="setTheme(this.value)"
-                    class="w-full p-2 border border-gray-300 rounded-lg shadow-sm dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                <select id="theme-selector" onchange="setTheme(this.value)" class="w-full p-2 border border-gray-300 rounded-lg shadow-sm dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                     <option value="light">Light Mode (Default)</option>
                     <option value="dark">Dark Mode (Default)</option>
                     <option value="monochrome">Monochrome Theme (Default)</option>
@@ -602,67 +588,76 @@
                     Locked themes will be greyed out if you do not own them.
                 </p>
             </div>
-            
+
             <div class="pb-4 border-b border-gray-200 dark:border-gray-700">
-                <label for="volume-slider" class="block text-lg font-bold text-gray-800 dark:text-white mb-2">Volume Control (Simulated)</label>
-                <input type="range" id="volume-slider" min="0" max="100" value="70" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700">
+                <label for="volume-slider" class="block text-lg font-bold text-gray-800 dark:text-white mb-2">Volume (WIP)</label>
+                <input type="range" id="volume-slider" min="0" max="100" value="50" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700">
                 <div class="flex justify-between text-sm text-gray-500 dark:text-gray-400 mt-1">
-                    <span>0%</span>
-                    <span id="volume-value">70%</span>
-                    <span>100%</span>
+                    <span>Mute</span>
+                    <span>50%</span>
+                    <span>Max</span>
                 </div>
             </div>
-            
+
             <div class="pb-4 border-b border-gray-200 dark:border-gray-700">
-                <label for="site-view-selector" class="block text-lg font-bold text-gray-800 dark:text-white mb-2">Default Site View</label>
-                <select id="site-view-selector" onchange="saveSiteViewPreference(this.value)"
-                    class="w-full p-2 border border-gray-300 rounded-lg shadow-sm dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-                    <option value="prompt">Ask Before Opening</option>
-                    <option value="internal">Try Internal Embed</option>
-                    <option value="newtab">Always Open in New Tab</option>
+                <label for="site-view-selector" class="block text-lg font-bold text-gray-800 dark:text-white mb-2">External Link Handling</label>
+                <select id="site-view-selector" onchange="saveSiteViewPreference(this.value)" class="w-full p-2 border border-gray-300 rounded-lg shadow-sm dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                    <option value="prompt">Ask me every time (Default)</option>
+                    <option value="internal">Always try internal viewer</option>
+                    <option value="newtab">Always open in new tab</option>
                 </select>
                 <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                    How the engine should handle direct website links.
+                    How should the app handle websites you search for (e.g., cloudmoonapp.com)?
                 </p>
             </div>
-
-            <div id="shop-section" class="pt-4 border-t border-gray-200 dark:border-gray-700">
-                <h3 class="text-2xl font-bold text-indigo-700 dark:text-indigo-400 mb-4">Starz Shop ✨</h3>
-                <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">Spend your points on exclusive themes and features!</p>
-                <div id="shop-items-container" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            
+            <div id="shop-section" class="pb-4 border-b border-gray-200 dark:border-gray-700">
+                <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-4">Starz Shop ✨</h3>
+                <div id="shop-items-container" class="space-y-4">
                     </div>
             </div>
+
+            <div class="pb-4 border-b border-gray-200 dark:border-gray-700">
+                <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-4">Developer Mode</h3>
+                <p id="dev-status-message" class="text-sm text-gray-700 dark:text-gray-300 mb-2">Status: <span class="text-gray-500 font-normal">Disabled</span></p>
+                <div class="flex space-x-2">
+                    <input type="text" id="custom-dev-id-input" placeholder="Enter Custom Dev ID" class="flex-grow p-2 border border-gray-300 rounded-lg shadow-sm dark:bg-gray-700 dark:border-gray-600 dark:text-white" >
+                    <button onclick="applyCustomId()" class="px-4 py-2 bg-red-600 text-white font-semibold rounded-lg shadow-md hover:bg-red-700 transition duration-300 ease-in-out">
+                        Activate
+                    </button>
+                </div>
+                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                    Activating Dev Mode unlocks secret features and infinite points.
+                </p>
+            </div>
         </div>
+
     </div>
 
-    <div id="chat-panel" class="fixed top-0 right-0 h-full w-80 bg-white dark:bg-gray-800 shadow-xl transform translate-x-full transition-transform duration-300 z-50 flex flex-col border-l border-gray-200 dark:border-gray-700">
-        <div class="p-4 flex justify-between items-center border-b border-gray-200 dark:border-gray-700">
-            <h2 class="text-xl font-bold text-indigo-700 dark:text-indigo-400">Starz Community Chat 💬</h2>
-            <button onclick="toggleChat()" class="text-gray-500 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-400 transition">
-                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+    <div id="chat-modal-overlay" class="fixed inset-0 bg-gray-900 bg-opacity-75 z-40 hidden" onclick="toggleChat()"></div>
+    <div id="chat-modal" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-sm h-full max-h-[80vh] bg-white p-4 rounded-xl shadow-2xl z-50 hidden dark:bg-gray-800 flex flex-col animate-scale-up">
+        <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4 border-b pb-2 flex justify-between items-center">
+            Community Chat
+            <button onclick="toggleChat()" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
+        </h2>
+        <div id="chat-messages" class="flex-grow overflow-y-auto space-y-3 mb-4 p-2 bg-gray-50 dark:bg-gray-700 rounded-lg">
+            <div id="chat-status" class="text-center text-sm text-gray-500 dark:text-gray-400">
+                Loading chat...
+            </div>
         </div>
-
-        <div id="messages" class="flex-grow p-4 overflow-y-auto space-y-3">
-            <p class="text-center text-sm text-gray-400">Loading messages...</p>
-        </div>
-
-        <div class="p-4 border-t border-gray-200 dark:border-gray-700">
-            <input type="text" id="username-input" placeholder="Your Username (Saved)" maxlength="20"
-                class="w-full mb-2 p-2 text-sm bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition" />
-            
-            <form id="message-form" class="flex space-x-2">
-                <input type="text" id="message-input" placeholder="Type a message..." required
-                    class="flex-grow p-3 text-sm bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition" />
-                <button type="submit" class="bg-indigo-600 text-white p-3 rounded-lg hover:bg-indigo-700 transition font-semibold">Send</button>
-            </form>
-        </div>
+        <form id="message-form" class="flex space-x-2">
+            <input type="text" id="message-input" placeholder="Type a message..." required class="flex-grow p-3 text-sm bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition" />
+            <button type="submit" class="bg-indigo-600 text-white p-3 rounded-lg hover:bg-indigo-700 transition font-semibold">Send</button>
+        </form>
     </div>
+
     <div id="loading-engine-overlay" class="fixed inset-0 bg-white dark:bg-gray-900 bg-opacity-95 dark:bg-opacity-95 backdrop-blur-sm z-[110] hidden flex flex-col items-center justify-center p-8 animate-fade-in">
         <div class="max-w-md w-full text-center">
             <div id="loading-emoji" class="text-6xl mb-6">🔍</div>
             <h2 class="text-3xl font-extrabold text-indigo-700 dark:text-indigo-400 mb-4">
-                Starz Search Engine is Loading...
+                 Loading you in...
             </h2>
             <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">
                 Estimated time: <span id="load-countdown" class="font-bold text-red-500">15s</span>
@@ -670,167 +665,36 @@
             <div class="w-3/4 mx-auto bg-gray-700 rounded-full h-2.5 mb-8">
                 <div id="load-progress-bar" class="bg-indigo-600 h-2.5 rounded-full" style="width: 0%"></div>
             </div>
+
             <div class="p-4 bg-gray-800 rounded-lg border border-gray-700 shadow-lg animate-fade-in">
-                <p class="text-xs font-semibold uppercase text-indigo-400 mb-2">Pro Tip:</p>
-                <p id="loading-tip" class="text-sm text-gray-300 italic">Loading Tip...</p>
+                <p class="text-xs font-semibold uppercase text-gray-400 mb-2">System Status</p>
+                <p class="text-sm text-gray-300">Concurrent Users: <span id="concurrent-users" class="font-bold text-indigo-400">2000</span></p>
+                <p class="text-sm text-gray-300 mt-1">Status: <span id="loading-tip" class="text-green-400">Applying latest theme update...</span></p>
             </div>
-            <p class="text-sm text-gray-500 dark:text-gray-400 mt-4">
-                <span id="concurrent-users" class="font-bold">...</span> concurrent users online.
-            </p>
+            
         </div>
     </div>
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        // Ensure you have the full list of imports needed for your Firebase version (v9+)
-        import { getFirestore, collection, addDoc, query, orderBy, limit, getDocs, serverTimestamp, setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-        
-        // Expose serverTimestamp and other variables globally
-        window.serverTimestamp = serverTimestamp;
-        
-        // Global Firebase variables
-        let app;
-        let db;
-        
-        // Configuration and ID from the Canvas environment
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'SIMULATED-USER-1337-DEFAULT';
-        
-        // --- YOUR FIREBASE CONFIGURATION (MODIFIED) ---
-        // **IMPORTANT:** You must fill in the placeholder values below with your actual project details.
-        const firebaseConfig = {
-            apiKey: "AIzaSyBpGIIeQhMdgsK640pjuvuUr8GyuGgUC3s", // <-- YOUR KEY INSERTED HERE
-            authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-            projectId: "YOUR_PROJECT_ID", // <-- MUST BE FILLED
-            storageBucket: "YOUR_PROJECT_ID.appspot.com", // <-- MUST BE FILLED
-            messagingSenderId: "YOUR_MESSAGING_SENDER_ID", // <-- MUST BE FILLED
-            appId: "YOUR_APP_ID" // <-- MUST BE FILLED
-        };
-        // --- END FIREBASE CONFIGURATION ---
-
-        window.appId = appId; // Expose to global scope
-        
-        // Initialize Firebase for Top Searches and Chat logging
-        if (firebaseConfig.apiKey.length > 0 && firebaseConfig.projectId.includes('YOUR_PROJECT_ID') === false) {
-            try {
-                app = initializeApp(firebaseConfig);
-                db = getFirestore(app);
-                // setLogLevel('debug'); // Uncomment for debugging
-                window.db = db; // Expose to global scope for logSearch and chat
-            } catch (e) {
-                console.error("Firebase initialization failed:", e);
-                alert("Firebase failed to initialize. Check your API key and project settings.");
-            }
-        } else {
-             console.warn("Firebase not initialized: Project ID placeholders are not replaced.");
-        }
 
 
-        /** * Logs a successful, non-URL search query to Firestore. 
-         */
-        window.logSearch = async function(query) {
-            if (!db || query.length < 5) return;
-            try {
-                const searchesCollectionPath = `/artifacts/${appId}/public/data/top_searches`;
-                // In v9+, use addDoc and collection: 
-                // await addDoc(collection(db, searchesCollectionPath), { ... }); 
-                // Using a simulated v8 fallback for simplicity/compatibility in a single file scenario:
-                if (db.collection) { // Check for v8 style collection method
-                    await db.collection(searchesCollectionPath).add({
-                        query: query,
-                        timestamp: serverTimestamp()
-                    });
-                } else if (typeof addDoc === 'function') { // Use v9 method if available
-                    await addDoc(collection(db, searchesCollectionPath), {
-                        query: query,
-                        timestamp: serverTimestamp()
-                    });
-                }
-            } catch (error) {
-                console.error("Error logging search to Firestore:", error);
-            }
-        }
-
-        /** * Fetches and displays the most popular searches from Firestore. 
-         */
-        window.loadTopSearches = async function() {
-            if (!db) {
-                document.getElementById('no-searches-message').classList.remove('hidden');
-                return;
-            }
-
-            const topSearchesDiv = document.getElementById('top-searches');
-            const noSearchesMessage = document.getElementById('no-searches-message');
-            const loadingSpan = document.getElementById('loading-searches');
-
-            loadingSpan.classList.remove('hidden');
-            topSearchesDiv.innerHTML = '';
-
-            try {
-                const searchesCollectionPath = `/artifacts/${appId}/public/data/top_searches`;
-                let querySnapshot;
-                
-                if (db.collection) { // Check for v8 style collection method
-                    const q = db.collection(searchesCollectionPath).orderBy('timestamp', 'desc').limit(100);
-                    querySnapshot = await q.get();
-                } else if (typeof query === 'function') { // Use v9 method if available
-                    const q = query(collection(db, searchesCollectionPath), orderBy('timestamp', 'desc'), limit(100));
-                    querySnapshot = await getDocs(q);
-                } else {
-                    throw new Error("Firestore methods not accessible.");
-                }
-
-
-                const queryCounts = {};
-                querySnapshot.forEach((doc) => {
-                    const data = doc.data();
-                    const queryText = data.query.toLowerCase();
-                    queryCounts[queryText] = (queryCounts[queryText] || 0) + 1;
-                });
-
-                const sortedQueries = Object.entries(queryCounts)
-                    .sort(([, a], [, b]) => b - a)
-                    .slice(0, 5);
-
-                if (sortedQueries.length === 0) {
-                    noSearchesMessage.classList.remove('hidden');
-                } else {
-                    noSearchesMessage.classList.add('hidden');
-                    sortedQueries.forEach(([queryText]) => {
-                        const button = document.createElement('button');
-                        button.textContent = '#' + queryText.charAt(0).toUpperCase() + queryText.slice(1);
-                        button.onclick = () => window.performQuickSearch(queryText);
-                        button.className = "px-4 py-2 text-sm font-semibold rounded-full bg-blue-100 text-blue-800 hover:bg-blue-200 transition duration-300 shadow-sm dark:bg-blue-900 dark:text-blue-100 dark:hover:bg-blue-800";
-                        topSearchesDiv.appendChild(button);
-                    });
-                }
-
-            } catch (error) {
-                console.error("Error loading top searches:", error);
-                topSearchesDiv.innerHTML = `<p class="text-sm text-red-500">Error loading popular searches. (Check rules/project ID)</p>`;
-            } finally {
-                loadingSpan.classList.add('hidden');
-            }
-        }
-    </script>
-
-
-    <script>
-        // --- SHOP & STATE CONSTANTS AND GLOBAL STATE ---
-        const PREMIUM_THEME_KEY = 'premium'; // Key for the premium theme
-        const PREMIUM_LOAD_TIME = 5; // seconds (Premium Benefit)
+    <script type="text/javascript">
+        // --- CONSTANTS ---
+        const APP_VERSION = '1.0.1';
+        const APP_ID = 'STARZ-TEST-001';
+        const PREMIUM_THEME_KEY = 'premium';
         const STANDARD_LOAD_TIME = 15; // seconds
-        const DEV_IDS = ['STARZ-GOLD-1337', 'STARZ-DEV-9000']; // List of valid Developer IDs
+        const PREMIUM_LOAD_TIME = 5; // seconds
+        const DEV_IDS = ['STARZ-GOLD-1337', '67']; // List of valid Developer IDs
         const TIPS = [
-            "Premium Members enjoy 5-second loading times!",
-            "Did you know you can set a timer right on the search bar?",
-            "Use the Settings modal to change your theme.",
-            "Try searching for 'Cool Math Games' to access the games section easily.",
-            "You can unlock new themes in the Starz Shop!",
-            "The volume control in settings is for ambiance only. (Simulated)"
+            "Yuh", 
+            "What is this diddy blud doin?", 
+            "Mr Beast Gimme some money, Yeahhhhh.", 
+            "I quit. I hate this job.", 
+            "Dude did u see the math homework, crazy right?", 
+            "USE CODE 67!!!"
         ];
         const EMOJIS = ['🚀', '✨', '💡', '🔍', '⭐', '🧠'];
-
         const SHOP_ITEMS = {
-            'premium_membership': { name: 'Premium Membership', cost: 500, type: 'membership', themeKey: PREMIUM_THEME_KEY, description: 'Faster loading (5s), exclusive theme, and a lifetime code. (1-time purchase)' },
+            'premium_membership': { name: 'Premium Membership [25% OFF]', cost: 425, type: 'membership', themeKey: PREMIUM_THEME_KEY, description: 'Faster loading (5s), exclusive theme, and a lifetime code. (1-time purchase)' },
             'cyberpunk': { name: 'Cyberpunk Theme', cost: 150, type: 'theme', themeKey: 'cyberpunk', description: 'Neon aesthetic with bright accents.' },
             'ocean': { name: 'Ocean Theme', cost: 150, type: 'theme', themeKey: 'ocean', description: 'Calm blues and whites.' },
             'forest': { name: 'Forest Theme', cost: 150, type: 'theme', themeKey: 'forest', description: 'Earthy greens and browns.' },
@@ -844,18 +708,18 @@
         let isPremium = localStorage.getItem('isPremium') === 'true';
         let isDevMode = localStorage.getItem('isDevMode') === 'true';
         let siteViewPreference = localStorage.getItem('siteViewPreference') || 'prompt'; // 'prompt', 'internal', or 'newtab'
-        
         let timerTimeout;
         let countdownInterval;
         let loadTimeout;
         let emojiInterval;
 
-        // --- MOCK API RESPONSE (Used when no real API is connected) ---
-        const MOCK_SUMMARY = "The Starz Search Mini-Engine is designed with a focus on delivering a fast, personalized user experience, incorporating features like a modern search interface, game shortcuts, and a point-based shop for theme customization. Its core functionality simulates real-time web search capability, providing concise, referenced answers. The interface is built using Tailwind CSS for a modern aesthetic and simple responsiveness. Features like custom themes and advanced settings, which were recently added, enhance user control and personalization, contributing significantly to a positive UX. Clean architecture ensures the application is robust and maintainable.";
+        // --- MOCK API RESPONSE (Used when no actual search tool is available) ---
+        const MOCK_SUMMARY = "The latest advancements in AI are primarily focused on large language models (LLMs) and generative adversarial networks (GANs). Recent breakthroughs include the development of models with trillions of parameters, significantly improving coherence and contextual understanding in text generation. Additionally, new training techniques are making these powerful models more accessible and efficient for broader applications across various industries, from finance to creative arts.";
         const MOCK_SOURCES = [
-            { uri: 'https://mock-source-1.com/ux-principles', title: 'UX Design Principles for Modern Web' },
-            { uri: 'https://mock-source-2.dev/clean-code-architecture', title: 'Fundamentals of Clean Code and Scalability' },
-            { uri: 'https://mock-source-3.org/future-web-standards', title: 'The Future of Web Customization and Theming' }
+            { url: 'https://www.nature.com/articles/ai-llm-breakthroughs', title: 'Nature: LLMs and the Future of AI' },
+            { url: 'https://ieeexplore.ieee.org/document/gan-efficiency', title: 'IEEE: Efficient Training of GANs' },
+            { url: 'https://techcrunch.com/2024/09/generative-ai-in-finance/', title: 'TechCrunch: Generative AI in Finance' },
+            { url: 'https://mitpress.mit.edu/books/web-customization', title: 'MIT Press: The New Era of Web Customization and Theming' }
         ];
 
         // --- UI Element References ---
@@ -869,14 +733,12 @@
         const searchFormContainer = document.getElementById('search-form-container');
         const mainContentCard = document.getElementById('main-content-card');
         const devPanelDiv = document.getElementById('dev-panel');
-
         // UI References for direct link/iframe
         const directLinkDiv = document.getElementById('direct-link-container');
         const directLinkTextSpan = document.getElementById('direct-link-text');
         const iframeViewerDiv = document.getElementById('iframe-viewer');
         const externalIframe = document.getElementById('external-iframe');
         const externalLinkRetry = document.getElementById('external-link-retry');
-
         // UI References for Settings Modal
         const settingsModal = document.getElementById('settings-modal');
         const settingsOverlay = document.getElementById('settings-modal-overlay');
@@ -884,168 +746,191 @@
         const themeSelector = document.getElementById('theme-selector');
         const siteViewSelector = document.getElementById('site-view-selector');
         const devStatusMessage = document.getElementById('dev-status-message');
-
-        // NEW SHOP REFERENCES
-        const pointsDisplay = document.getElementById('points-display');
+        // NEW SHOP References
         const shopItemsContainer = document.getElementById('shop-items-container');
-        const premiumBadge = document.getElementById('premium-badge');
-
-        // NEW UI References for Loading Engine
-        const loadingEngineOverlay = document.getElementById('loading-engine-overlay');
-        const loadCountdownSpan = document.getElementById('load-countdown');
-        const loadingEmojiDiv = document.getElementById('loading-emoji');
-        const loadingTipP = document.getElementById('loading-tip');
-        const concurrentUsersSpan = document.getElementById('concurrent-users');
-        const loadProgressBar = document.getElementById('load-progress-bar');
-
-        // UI References for Chat
-        const chatPanel = document.getElementById('chat-panel');
-        const messagesDiv = document.getElementById('messages');
-        const usernameInput = document.getElementById('username-input');
-        const messageForm = document.getElementById('message-form');
-        const messageInput = document.getElementById('message-input');
-        let chatUsername = localStorage.getItem('chatUsername') || 'StarzGuest-' + Math.floor(Math.random() * 10000);
-        
-        // NEW UI References for Notepad
+        const pointsDisplay = document.getElementById('points-display');
+        // UI References for Notepad
         const notepadModal = document.getElementById('notepad-modal');
         const notepadOverlay = document.getElementById('notepad-modal-overlay');
         const notepadTextArea = document.getElementById('notepad-text-area');
-
-        // NEW UI References for Feedback
+        // UI References for Feedback
         const feedbackSection = document.getElementById('feedback-section');
         const feedbackMessage = document.getElementById('feedback-message');
+        // UI References for Loading Engine
+        const loadingEngineOverlay = document.getElementById('loading-engine-overlay');
+        const loadCountdownSpan = document.getElementById('load-countdown');
+        const loadProgressBar = document.getElementById('load-progress-bar');
+        const concurrentUsersSpan = document.getElementById('concurrent-users');
+        const loadingTipP = document.getElementById('loading-tip');
+        const loadingEmojiDiv = document.getElementById('loading-emoji');
 
+        // --- FIREBASE MOCK/SIMULATION (To support `logSearch` and `loadTopSearches`) ---
+        let db; // Simulated Firestore instance placeholder.
 
-        // --- CHAT LOGIC ---
-
-        /**
-         * Toggles the chat sidebar visibility.
-         */
-        function toggleChat() {
-            chatPanel.classList.toggle('translate-x-full');
-            
-            // Clear the message input when closing
-            if (chatPanel.classList.contains('translate-x-full')) {
-                messageInput.value = '';
-            }
-        }
-
-        /**
-         * Initializes the chat room logic, called on window.onload.
-         */
-        function initChat() {
-            if (typeof window.db === 'undefined') {
-                console.warn("Firestore 'db' not found. Chat will only be visible but won't function.");
-                messagesDiv.innerHTML = '<p class="text-center text-sm text-red-500">Chat services unavailable (Firestore not initialized).</p>';
-                return;
-            }
-            
-            usernameInput.value = chatUsername;
-            
-            // Attach event listeners
-            usernameInput.addEventListener('input', updateUsername);
-            messageForm.addEventListener('submit', sendMessage);
-            
-            // Start listening for real-time messages
-            listenForMessages();
-        }
-
-        /**
-         * Saves the username to localStorage whenever the user changes it.
-         */
-        function updateUsername(e) {
-            chatUsername = e.target.value.trim().substring(0, 20); // enforce max length
-            localStorage.setItem('chatUsername', chatUsername);
-        }
-
-        /**
-         * Handles sending a new message to Firestore.
-         */
-        async function sendMessage(e) {
-            e.preventDefault();
-            const message = messageInput.value.trim();
-            
-            if (!chatUsername || !message || typeof window.db === 'undefined' || typeof window.serverTimestamp === 'undefined') return;
-
+        // Simulates the initialization of the Firebase App and Firestore (or its V8/V9 global functions).
+        window.initializeFirebaseSimulation = function() {
             try {
-                // Use a simulated v8 fallback for simplicity/compatibility in a single file scenario:
-                if (window.db.collection) { 
-                    await window.db.collection('chats').add({
-                        username: chatUsername,
-                        message: message,
-                        timestamp: window.serverTimestamp()
-                    });
+                // Since we cannot run external scripts, we check for a global mock or skip.
+                if (typeof window.firebase !== 'undefined' && typeof window.firebase.initializeApp === 'function') {
+                    // Actual Firebase is available (not expected in this environment, but good practice)
+                    const app = firebase.initializeApp({ /* config */ });
+                    db = firebase.firestore();
+                    console.log("Using real (or mocked) Firebase.");
                 } else {
-                    // Assuming v9 structure is handled by the module import if available
-                    alert("Firestore API v9 addDoc function is required for sending messages.");
-                    return;
+                    // Use a simple LocalStorage mock for Top Searches and Chat
+                    console.log("Using LocalStorage/Internal Mock for Firebase features.");
+                    db = {
+                        collection: (path) => ({
+                            add: async (data) => {
+                                // Mock add operation for searches or chat
+                                let items = JSON.parse(localStorage.getItem(path) || '[]');
+                                items.push({...data, id: Date.now().toString()});
+                                localStorage.setItem(path, JSON.stringify(items));
+                            },
+                            orderBy: (field, direction) => ({
+                                limit: (count) => ({
+                                    get: async () => {
+                                        // Mock get operation for searches
+                                        let items = JSON.parse(localStorage.getItem(path) || '[]');
+                                        items.sort((a, b) => {
+                                            if (direction === 'desc') return b[field] - a[field];
+                                            return a[field] - b[field];
+                                        });
+                                        // Simple frequency counting for top searches
+                                        const queryCounts = {};
+                                        items.forEach(item => {
+                                            queryCounts[item.query] = (queryCounts[item.query] || 0) + 1;
+                                        });
+                                        
+                                        const sortedQueries = Object.keys(queryCounts)
+                                            .sort((a, b) => queryCounts[b] - queryCounts[a])
+                                            .slice(0, count);
+
+                                        return {
+                                            docs: sortedQueries.map(query => ({
+                                                data: () => ({ query: query, count: queryCounts[query] })
+                                            }))
+                                        };
+                                    }
+                                })
+                            })
+                        })
+                    };
                 }
-                
-                messageInput.value = ''; // Clear input after successful send
             } catch (error) {
-                console.error("Error sending message: ", error);
-                alert("Failed to send message. This may be due to Firebase Security Rules.");
+                console.warn("Firebase/Mock Initialization failed. Some features (Chat, Top Searches) may be unavailable.", error);
+            }
+        };
+
+        // Initialize Firebase mock on load
+        initializeFirebaseSimulation();
+
+
+        // --- CHAT LOGIC (Simplified Mock) ---
+        const chatMessagesDiv = document.getElementById('chat-messages');
+        const chatModal = document.getElementById('chat-modal');
+        const chatOverlay = document.getElementById('chat-modal-overlay');
+        const messageForm = document.getElementById('message-form');
+        const messageInput = document.getElementById('message-input');
+        const CHAT_STORAGE_KEY = `/artifacts/${APP_ID}/public/data/chat_messages`;
+
+        function initChat() {
+            loadChatMessages();
+            messageForm.addEventListener('submit', handleMessageSubmit);
+            // Simulate receiving new messages every 5 seconds
+            setInterval(simulateIncomingMessage, 5000);
+        }
+
+        function toggleChat() {
+            const isHidden = chatModal.classList.contains('hidden');
+            if (isHidden) {
+                chatModal.classList.remove('hidden');
+                chatOverlay.classList.remove('hidden');
+                loadChatMessages();
+                messageInput.focus();
+            } else {
+                chatModal.classList.add('hidden');
+                chatOverlay.classList.add('hidden');
             }
         }
 
-        /**
-         * Subscribes to real-time updates from Firestore and displays messages.
-         */
-        function listenForMessages() {
-            if (typeof window.db === 'undefined' || typeof window.firebase === 'undefined') return;
+        function loadChatMessages() {
+            const messages = JSON.parse(localStorage.getItem(CHAT_STORAGE_KEY) || '[]');
+            chatMessagesDiv.innerHTML = '<div id="chat-status" class="text-center text-sm text-gray-500 dark:text-gray-400">Welcome to the chat!</div>'; // Clear and reset status
+            
+            messages.forEach(msg => {
+                displayMessage(msg.user, msg.text, msg.isSelf);
+            });
+            chatMessagesDiv.scrollTop = chatMessagesDiv.scrollHeight; // Scroll to bottom
+        }
 
-            // Use the simulated v8 fallback for onSnapshot
-            if (window.db.collection) {
-                window.db.collection('chats')
-                    .orderBy('timestamp', 'desc') // Get newest messages first
-                    .limit(50) // Limit to the last 50 messages
-                    .onSnapshot(snapshot => {
-                        messagesDiv.innerHTML = ''; // Clear existing messages
-                        
-                        // Reverse the order to display newest at the bottom
-                        const reversedDocs = snapshot.docs.reverse(); 
-
-                        if (reversedDocs.length === 0) {
-                            messagesDiv.innerHTML = '<p class="text-center text-sm text-gray-400">No messages yet. Be the first!</p>';
-                            return;
-                        }
-
-                        reversedDocs.forEach(doc => {
-                            const data = doc.data();
-                            // Format time or show '...' if timestamp hasn't arrived from server yet
-                            const time = data.timestamp ? new Date(data.timestamp.toDate()).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : '...';
-
-                            const isMe = data.username === chatUsername;
-                            
-                            // Tailwind classes for styling chat bubbles
-                            const bubbleClasses = isMe ? 'self-end bg-indigo-600 text-white rounded-bl-xl' : 'self-start bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white rounded-br-xl';
-                            const nameClasses = isMe ? 'text-white' : 'text-indigo-600 dark:text-indigo-400';
-                            
-                            const messageHtml = `
-                                <div class="flex flex-col ${isMe ? 'items-end' : 'items-start'}">
-                                    <span class="text-xs ${nameClasses} font-semibold mb-0.5">${data.username}</span>
-                                    <div class="max-w-xs p-3 text-sm rounded-t-xl ${bubbleClasses} shadow-md break-words whitespace-pre-wrap">
-                                        ${data.message}
-                                    </div>
-                                    <span class="text-xs text-gray-400 dark:text-gray-500 mt-1">${time}</span>
-                                </div>
-                            `;
-                            messagesDiv.innerHTML += messageHtml;
-                        });
-                        
-                        // Auto-scroll to the bottom (newest message)
-                        messagesDiv.scrollTop = messagesDiv.scrollHeight;
-                    }, error => {
-                        console.error("Error listening to chat messages: ", error);
-                        messagesDiv.innerHTML = '<p class="text-center text-sm text-red-500">Could not connect to chat. Check your Firebase Project ID and Security Rules.</p>';
-                    });
+        function handleMessageSubmit(event) {
+            event.preventDefault();
+            const text = messageInput.value.trim();
+            if (text) {
+                // Simulate sending message
+                const newMessage = { user: 'You', text: text, isSelf: true, timestamp: Date.now() };
+                saveMessage(newMessage);
+                displayMessage(newMessage.user, newMessage.text, newMessage.isSelf);
+                messageInput.value = '';
+                chatMessagesDiv.scrollTop = chatMessagesDiv.scrollHeight;
+                // Simulate a generic response after a delay
+                setTimeout(() => simulateIncomingMessage(), 2000);
             }
         }
-        
-        // Expose initChat and toggleChat to the global scope
+
+        function saveMessage(msg) {
+            const messages = JSON.parse(localStorage.getItem(CHAT_STORAGE_KEY) || '[]');
+            messages.push(msg);
+            // Keep only the last 50 messages
+            localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(messages.slice(-50))); 
+        }
+
+        function displayMessage(user, text, isSelf) {
+            const messageElement = document.createElement('div');
+            const userClass = isSelf ? 'justify-end' : 'justify-start';
+            const bubbleClass = isSelf ? 'bg-indigo-600 text-white rounded-tr-none' : 'bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200 rounded-tl-none';
+            const userText = isSelf ? 'You' : user;
+            
+            messageElement.className = `flex ${userClass} animate-fade-in`;
+            messageElement.innerHTML = `
+                <div class="max-w-[70%] p-3 rounded-xl shadow-md ${bubbleClass}">
+                    <p class="text-xs font-semibold mb-1 ${isSelf ? 'text-indigo-200' : 'text-gray-600 dark:text-gray-400'}">${userText}</p>
+                    <p class="text-sm">${text}</p>
+                </div>
+            `;
+            // Remove the initial status message if it's there
+            const status = document.getElementById('chat-status');
+            if (status) status.remove();
+
+            chatMessagesDiv.appendChild(messageElement);
+        }
+
+        function simulateIncomingMessage() {
+            if (chatModal.classList.contains('hidden')) return; // Don't simulate if chat is closed
+
+            const BOT_MESSAGES = [
+                "Hey, does anyone have the code 67?",
+                "This Golden Theme is awesome!",
+                "Trying to find a new game to play in the iframe...",
+                "The server latency feels pretty good today.",
+                "Starz is better than Steam, change my mind."
+            ];
+            const BOT_NAMES = ['CodeMaster', 'ThemeLover', 'GamerStar', 'LowLatencyGuy', 'StarzFan'];
+
+            const text = BOT_MESSAGES[Math.floor(Math.random() * BOT_MESSAGES.length)];
+            const user = BOT_NAMES[Math.floor(Math.random() * BOT_NAMES.length)];
+            
+            const newMessage = { user: user, text: text, isSelf: false, timestamp: Date.now() };
+            saveMessage(newMessage);
+            displayMessage(newMessage.user, newMessage.text, newMessage.isSelf);
+            chatMessagesDiv.scrollTop = chatMessagesDiv.scrollHeight;
+        }
+
+        // Expose to the global scope
         window.initChat = initChat;
         window.toggleChat = toggleChat;
-        
+
         // --- NEW NOTEPAD LOGIC ---
         function openNotepad() {
             notepadTextArea.value = localStorage.getItem('notepadContent') || '';
@@ -1066,12 +951,11 @@
         }
         window.saveNotepadContent = saveNotepadContent;
 
-
         // --- NEW FEEDBACK LOGIC ---
         function submitFeedback(type) {
             // Disable buttons immediately to prevent spamming
             feedbackSection.querySelectorAll('button').forEach(btn => btn.disabled = true);
-            
+
             if (isDevMode) {
                 feedbackMessage.textContent = `Thanks, Dev! Feedback (${type}) logged to your simulated dashboard.`;
             } else {
@@ -1080,85 +964,288 @@
                     localStorage.setItem('userPoints', userPoints.toString());
                     feedbackMessage.textContent = `Thanks for the "Like"! You earned 10 points. Current points: ${getPointsDisplay()}`;
                 } else {
-                    userPoints = Math.max(0, userPoints - 2); 
+                    userPoints = Math.max(0, userPoints - 2);
                     localStorage.setItem('userPoints', userPoints.toString());
                     feedbackMessage.textContent = `Feedback received. We'll use this to improve! (-2 points). Current points: ${getPointsDisplay()}`;
                 }
             }
-
             feedbackMessage.classList.remove('hidden');
-            
+
             // Clear message after a short delay
-            setTimeout(() => feedbackMessage.classList.add('hidden'), 5000);
-            
-            // Re-render shop to update points display in the settings modal
+            setTimeout(() => feedbackMessage.classList.add('hidden'), 5000); 
+
+            // Re-render shop to update points display in the settings modal if open
             if (settingsModal.classList.contains('hidden') === false) {
-                renderShop(); 
+                renderShop();
             }
         }
         window.submitFeedback = submitFeedback; // Expose globally
 
-        // --- UTILITY FUNCTIONS ---
 
+        // --- UTILITY FUNCTIONS ---
         /**
          * Gets a user-friendly string for the current points.
          */
         function getPointsDisplay() {
-            return isDevMode ? "∞" : userPoints.toLocaleString();
+            return isDevMode ? "∞ (Dev Mode)" : userPoints.toLocaleString();
         }
 
         /**
-         * Renders the shop content based on ownership and points.
+         * Checks if a string is a valid URL or IP address.
+         */
+        window.isValidUrl = function(str) {
+            try {
+                // Check if it's a URL (must include a scheme for new URL() to work well)
+                new URL(str.startsWith('http') ? str : `https://${str}`);
+                return true;
+            } catch (e) {
+                // Check for domain.tld or ip.address.here
+                const simpleDomainRegex = /^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(:\d+)?$/;
+                return simpleDomainRegex.test(str.toLowerCase());
+            }
+        }
+
+        /**
+         * Sets the primary theme for the entire application.
+         */
+        window.setTheme = function(themeName, save = true) {
+            const themeMap = {
+                'premium': { name: 'Premium' },
+                'cyberpunk': { name: 'Cyberpunk' },
+                'ocean': { name: 'Ocean' },
+                'forest': { name: 'Forest' },
+                'sunset': { name: 'Sunset' },
+                'classic': { name: 'Classic' }
+            };
+
+            const isLockedTheme = themeName !== 'light' && themeName !== 'dark' && themeName !== 'monochrome' && themeName !== 'golden';
+            const isOwnedTheme = ownedThemes.includes(themeName) || (themeName === PREMIUM_THEME_KEY && isPremium);
+            const isPremiumTheme = themeName === PREMIUM_THEME_KEY;
+
+            if (isLockedTheme && !isOwnedTheme && !isDevMode && !isPremiumTheme) {
+                 // Prevent setting a locked theme unless it's a default one
+                 alert(`Theme "${themeName.charAt(0).toUpperCase() + themeName.slice(1)}" is locked. Please purchase it in the shop.`);
+                 // Revert to the last saved theme
+                 themeName = localStorage.getItem('theme') || 'dark';
+            }
+
+            // 2. Remove all theme classes
+            const allThemeClasses = ['dark-mode', 'monochrome-theme', 'golden-theme', PREMIUM_THEME_KEY + '-theme'];
+            Object.keys(SHOP_ITEMS).forEach(key => {
+                 if (SHOP_ITEMS[key].type === 'theme') {
+                    allThemeClasses.push(SHOP_ITEMS[key].themeKey + '-theme');
+                 }
+            });
+            document.body.classList.remove(...allThemeClasses);
+
+            // 3. Apply the chosen theme class
+            if (themeName === 'dark') {
+                document.body.classList.add('dark-mode');
+            } else if (themeName === 'monochrome') {
+                document.body.classList.add('monochrome-theme');
+            } else if (themeName === 'golden') {
+                 document.body.classList.add('golden-theme');
+            } else if (themeName !== 'light') {
+                // All other themes use the structure [themeName]-theme
+                document.body.classList.add(themeName + '-theme');
+            }
+
+            // 4. Save
+            if (save) {
+                 localStorage.setItem('theme', themeName);
+            }
+
+            // 5. Update selector (if available)
+            if (themeSelector) {
+                 themeSelector.value = themeName;
+            }
+        }
+
+        /**
+         * Saves the site view preference.
+         */
+        function saveSiteViewPreference(preference) {
+            siteViewPreference = preference;
+            localStorage.setItem('siteViewPreference', preference);
+        }
+        window.saveSiteViewPreference = saveSiteViewPreference; // Expose globally
+
+        // --- CLOCK AND TIMER LOGIC ---
+        /**
+         * Updates the live time display in the header.
+         */
+        function updateClock() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            document.getElementById('live-clock').textContent = timeString;
+        }
+
+        /**
+         * Sets a simple countdown timer.
+         */
+        function setSimpleTimer() {
+            if (timerTimeout) {
+                clearTimeout(timerTimeout);
+                clearInterval(countdownInterval);
+                timerTimeout = null;
+                countdownInterval = null;
+                document.getElementById('timer-status').textContent = 'Timer cancelled.';
+                return;
+            }
+
+            const minutes = parseInt(document.getElementById('timer-input').value, 10);
+            const statusSpan = document.getElementById('timer-status');
+            
+            if (isNaN(minutes) || minutes <= 0) {
+                statusSpan.textContent = 'Please enter a valid number of minutes.';
+                return;
+            }
+            
+            let timeRemaining = minutes * 60; // in seconds
+
+            function updateCountdown() {
+                const mins = Math.floor(timeRemaining / 60);
+                const secs = timeRemaining % 60;
+                statusSpan.textContent = `Timer: ${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+
+                if (timeRemaining <= 0) {
+                    clearInterval(countdownInterval);
+                    timerTimeout = null;
+                    statusSpan.textContent = 'TIME IS UP! ⏰';
+                    // Play a sound or flash the screen for a real app
+                    alert('Time is up!');
+                }
+                timeRemaining--;
+            }
+
+            updateCountdown(); // Initial call
+            countdownInterval = setInterval(updateCountdown, 1000);
+            statusSpan.textContent = 'Timer running...';
+        }
+        window.setSimpleTimer = setSimpleTimer; // Expose globally
+
+
+        // --- NEW MUSIC PLAYER (YOUTUBE) LOGIC ---
+        /**
+         * Extracts a YouTube Video ID or Playlist ID from a given URL or raw input.
+         *
+         * @param {string} url - The URL or ID provided by the user.
+         * @returns {object|null} An object with { type: 'video'/'playlist', id: '...' } or null if invalid.
+         */
+        function extractYouTubeId(url) {
+            let videoMatch = url.match(/(?:v=|youtu\.be\/|embed\/)([^&?]*)/);
+            let playlistMatch = url.match(/[?&]list=([^&]*)/);
+
+            if (playlistMatch && playlistMatch[1].startsWith('PL')) {
+                return { type: 'playlist', id: playlistMatch[1] };
+            } else if (videoMatch && videoMatch[1].length === 11) {
+                return { type: 'video', id: videoMatch[1] };
+            }
+            // Handle raw 11-character ID being pasted
+            if (url.length === 11 && !url.includes(' ')) {
+                return { type: 'video', id: url };
+            }
+            // Handle raw Playlist ID (starts with PL)
+            if (url.startsWith('PL') && url.length >= 16) { // YouTube playlist IDs are usually 16+ chars
+                return { type: 'playlist', id: url };
+            }
+            
+            return null;
+        }
+
+        /**
+         * Loads the YouTube IFrame player based on user input.
+         */
+        function loadYouTubePlayer() {
+            const inputElement = document.getElementById('musicUrlInput');
+            const container = document.getElementById('playerEmbedContainer');
+            const statusDisplay = document.getElementById('music-player-status');
+            const url = inputElement.value.trim();
+
+            container.innerHTML = '';
+            statusDisplay.innerHTML = `Status: <span class="text-yellow-500 font-bold">Loading...</span>`;
+
+            const result = extractYouTubeId(url);
+
+            if (!result) {
+                // Restore placeholder and show error status
+                container.innerHTML = `<p id="playerPlaceholder" class="text-center text-red-500 py-10">
+                    Invalid YouTube URL or ID. Please check the format.
+                </p>`;
+                statusDisplay.innerHTML = `Status: <span class="text-red-500 font-bold">Invalid URL or ID.</span>`;
+                return;
+            }
+
+            let embedUrl = '';
+            const width = '100%';
+            const height = '315';
+            
+            // Construct the embed URL based on type
+            if (result.type === 'playlist') {
+                // Loads a playlist player
+                embedUrl = `https://www.youtube.com/embed/videoseries?list=${result.id}&autoplay=1&rel=0`;
+            } else if (result.type === 'video') {
+                // Loads a single video player
+                embedUrl = `https://www.youtube.com/embed/${result.id}?autoplay=1&rel=0`;
+            }
+
+            // Generate the iframe element
+            container.innerHTML = `
+                <iframe width="${width}" height="${height}" 
+                    src="${embedUrl}" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen 
+                    class="rounded-lg shadow-xl w-full h-full">
+                </iframe>
+            `;
+
+            statusDisplay.innerHTML = `Status: <span class="text-green-500 font-bold">Player Loaded! (${result.type.charAt(0).toUpperCase() + result.type.slice(1)})</span>`;
+        }
+        window.loadYouTubePlayer = loadYouTubePlayer; // Expose globally
+
+        // --- SHOP AND PURCHASE LOGIC ---
+        
+        const themeMap = {
+            'premium': { name: 'Premium' },
+            'cyberpunk': { name: 'Cyberpunk' },
+            'ocean': { name: 'Ocean' },
+            'forest': { name: 'Forest' },
+            'sunset': { name: 'Sunset' },
+            'classic': { name: 'Classic' }
+        };
+
+        /**
+         * Renders the shop items and updates the points display.
          */
         function renderShop() {
+            if (!shopItemsContainer) return;
             shopItemsContainer.innerHTML = '';
             pointsDisplay.textContent = getPointsDisplay();
-            
-            // Build the final theme list for the settings dropdown
-            const finalThemes = [];
-            const themeMap = {};
 
-            // Add default themes first
-            finalThemes.push(
-                { value: 'light', name: 'Light Mode (Default)', isLocked: false },
-                { value: 'dark', name: 'Dark Mode (Default)', isLocked: false },
-                { value: 'monochrome', name: 'Monochrome Theme (Default)', isLocked: false }
-            );
-
-            // Map keys to the order they appear in SHOP_ITEMS for rendering
-            const shopItemKeys = Object.keys(SHOP_ITEMS);
-            shopItemKeys.forEach(key => {
+            Object.keys(SHOP_ITEMS).forEach(key => {
                 const item = SHOP_ITEMS[key];
-                const isOwned = key === 'premium_membership' ? isPremium : ownedThemes.includes(item.themeKey);
+                const isOwned = (item.type === 'theme' && ownedThemes.includes(item.themeKey)) || (item.type === 'membership' && isPremium);
                 
-                // Add theme to the selector list
-                if (item.type === 'theme' || item.themeKey === PREMIUM_THEME_KEY) {
-                     themeMap[item.themeKey] = item;
-                }
+                let buttonText = isOwned ? 'Owned' : `Buy for ${item.cost} Pts`;
+                if (isDevMode && !isOwned) buttonText = `Buy for 0 Pts (Dev)`;
 
-                // Render the shop item card
-                const isMembership = item.type === 'membership';
-                const buttonText = isOwned ? (isMembership ? '✓ Owned' : '✓ Use') : `Buy (${item.cost})`;
                 const buttonColor = isOwned ? 'bg-gray-400 hover:bg-gray-500' : (isDevMode || userPoints >= item.cost ? 'bg-green-600 hover:bg-green-700' : 'bg-red-400');
                 const isDisabled = isOwned || (!isDevMode && userPoints < item.cost);
-                let premiumInfo = '';
 
+                let premiumInfo = '';
                 if (key === 'premium_membership' && isOwned) {
                     // Simulated premium code
                     const premiumCode = 'STARZ-PREM-1337-CODE';
                     premiumInfo = `<p class="mt-2 text-xs text-yellow-500 dark:text-yellow-300 font-mono break-all">Lifetime Code: ${premiumCode}</p>`;
                 }
-                
+
                 const itemHtml = `
                     <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg shadow-md border ${isOwned ? 'border-indigo-400' : 'border-gray-200 dark:border-gray-600'}">
                         <h4 class="text-lg font-bold ${isOwned ? 'text-indigo-600 dark:text-indigo-400' : 'text-gray-800 dark:text-white'}">${item.name}</h4>
                         <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">${item.description}</p>
                         ${premiumInfo}
-                        <button 
-                            onclick="buyItem('${key}')"
-                            class="mt-3 w-full px-4 py-2 ${buttonColor} text-white font-semibold rounded-lg transition duration-300 disabled:opacity-50"
-                            ${isDisabled ? 'disabled' : ''}
-                        >
+                        <button onclick="buyItem('${key}')" class="mt-3 w-full px-4 py-2 ${buttonColor} text-white font-semibold rounded-lg transition duration-300 disabled:opacity-50" ${isDisabled ? 'disabled' : ''} >
                             ${buttonText}
                         </button>
                     </div>
@@ -1170,154 +1257,79 @@
             Object.values(themeMap).forEach(item => {
                 const isOwned = ownedThemes.includes(item.themeKey) || (item.themeKey === PREMIUM_THEME_KEY && isPremium);
                 const themeName = item.name.replace(' Theme', '');
-                finalThemes.push({
-                    value: item.themeKey,
-                    name: `${themeName} Theme ${isOwned ? ' (Owned)' : ' (Locked)'}`,
-                    isLocked: !isOwned && !isDevMode,
-                    isPremium: item.themeKey === PREMIUM_THEME_KEY
-                });
+                let option = themeSelector.querySelector(`option[value="${item.themeKey}"]`);
+                
+                if (!option) {
+                    option = document.createElement('option');
+                    option.value = item.themeKey;
+                    option.textContent = isOwned ? `${themeName} Theme` : `${themeName} Theme (Locked)`;
+                    themeSelector.appendChild(option);
+                } else {
+                     option.textContent = isOwned ? `${themeName} Theme` : `${themeName} Theme (Locked)`;
+                }
+                option.disabled = !isOwned && !isDevMode;
             });
             
-            // Add Golden Theme if in Dev Mode
-            if (isDevMode) {
-                finalThemes.push({ value: 'golden', name: 'Golden Theme (DEV ONLY)' });
-            }
-
-            themeSelector.innerHTML = '';
-            finalThemes.forEach(theme => {
-                const option = document.createElement('option');
-                option.value = theme.value;
-                option.textContent = theme.name;
-                option.disabled = theme.isLocked;
-                themeSelector.appendChild(option);
-            });
-
-            // Set the currently active theme
-            const currentTheme = localStorage.getItem('theme') || 'dark';
-            themeSelector.value = currentTheme;
-
-            // Show premium badge if applicable
-            premiumBadge.classList.toggle('hidden', !isPremium);
+            // Set the current theme in the selector
+            themeSelector.value = localStorage.getItem('theme') || 'dark';
         }
-        window.renderShop = renderShop; // Expose globally
+
 
         /**
-         * Handles the purchase logic for a shop item.
+         * Handles the logic for buying a shop item.
          */
-        function buyItem(itemKey) {
-            const item = SHOP_ITEMS[itemKey];
-            if (!item) return;
+        function buyItem(key) {
+            const item = SHOP_ITEMS[key];
+            const isOwned = (item.type === 'theme' && ownedThemes.includes(item.themeKey)) || (item.type === 'membership' && isPremium);
 
-            // Check if already owned/premium
-            if (itemKey === 'premium_membership' && isPremium) return;
-            if (item.type === 'theme' && ownedThemes.includes(item.themeKey)) return;
-
-            // Check points (Devs have infinite points)
-            if (!isDevMode && userPoints < item.cost) {
-                alert("Not enough points! You need " + (item.cost - userPoints) + " more points.");
+            if (isOwned) {
+                alert(`You already own ${item.name}.`);
                 return;
             }
 
-            // Deduct points
-            if (!isDevMode) {
-                userPoints -= item.cost;
-                localStorage.setItem('userPoints', userPoints.toString());
+            if (!isDevMode && userPoints < item.cost) {
+                alert(`You need ${item.cost - userPoints} more points to buy ${item.name}.`);
+                return;
             }
+            
+            const cost = isDevMode ? 0 : item.cost;
+            
+            // Deduct points
+            userPoints -= cost;
+            localStorage.setItem('userPoints', userPoints.toString());
 
-            // Apply purchase effect
-            if (item.type === 'membership') {
+            // Handle theme purchase
+            if (item.type === 'theme') {
+                ownedThemes.push(item.themeKey);
+                localStorage.setItem('ownedThemes', JSON.stringify(ownedThemes));
+                setTheme(item.themeKey, true); // switch to new theme
+            } 
+            // Handle premium purchase
+            else if (item.type === 'membership') {
                 isPremium = true;
                 localStorage.setItem('isPremium', 'true');
-                setTheme(item.themeKey, true); // Automatically apply premium theme
-            } else if (item.type === 'theme') {
-                if (!ownedThemes.includes(item.themeKey)) {
-                    ownedThemes.push(item.themeKey);
-                    localStorage.setItem('ownedThemes', JSON.stringify(ownedThemes));
-                }
-                setTheme(item.themeKey, true); // Automatically switch to new theme
             }
 
             // Re-render to update points and button status
             renderShop();
-            
+
             // Give feedback
             alert(`Purchase successful! You bought ${item.name}.`);
         }
         window.buyItem = buyItem; // Expose globally
+        
+        // --- DEV MODE LOGIC ---
 
         /**
-         * Updates the music player iframe based on a Spotify link or ID.
-         */
-        function startSpotifyPlayer() {
-            const searchInput = document.getElementById('spotify-search-input');
-            const statusDisplay = document.getElementById('music-player-status');
-            const embedContainer = document.getElementById('spotify-player-embed');
-            const query = searchInput.value.trim();
-            embedContainer.innerHTML = '';
-
-            if (!query) {
-                statusDisplay.innerHTML = `Status: <span class="text-yellow-500 font-bold">Please paste a Spotify track or playlist URL.</span>`;
-                return;
-            }
-
-            // Regex to find Spotify track/album/playlist ID/type from various URLs or raw IDs
-            const spotifyRegex = /(?:spotify\.com\/(track|album|playlist|episode|show)\/|spotify:)([\w\d]+)/i;
-            const match = query.match(spotifyRegex);
-            let embedUrl;
-
-            if (match) {
-                // If it's a URL, use the captured type and ID
-                const type = match[1];
-                const id = match[2];
-                // Use &theme=0 for dark player, &theme=1 for light player (or omit for default)
-                embedUrl = `http://googleusercontent.com/spotify.com/embed/${type}/${id}?utm_source=generator&theme=0`;
-                statusDisplay.innerHTML = `Status: <span class="text-green-500 font-bold">Player Loaded!</span> You should hear music!`;
-            } else if (query.length === 22 && /^[a-zA-Z0-9]+$/.test(query)) {
-                // Assume 22-character alphanumeric string is a raw track ID
-                embedUrl = `http://googleusercontent.com/spotify.com/embed/track/${query}?utm_source=generator&theme=0`;
-                statusDisplay.innerHTML = `Status: <span class="text-green-500 font-bold">Player Loaded! (Assuming Track ID)</span> You should hear music!`;
-            } else {
-                // Not a recognized Spotify format
-                statusDisplay.innerHTML = `Status: <span class="text-red-500 font-bold">Invalid link or ID.</span> Please use a full Spotify URL for a track, album, or playlist.`;
-                return;
-            }
-
-            // Construct and inject the real Spotify iframe
-            embedContainer.innerHTML = `
-                <iframe style="border-radius:12px; width: 100%; height: 80px;" 
-                    src="${embedUrl}" 
-                    frameBorder="0" allowfullscreen="" 
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
-                </iframe>
-            `;
-            searchInput.value = '';
-        }
-        window.startSpotifyPlayer = startSpotifyPlayer; // Expose globally
-
-
-        /**
-         * Checks if the input string is likely a URL.
-         */
-        function isValidUrl(string) {
-            // Simple check: is it a common domain or does it look like a full URL?
-            const domainRegex = /\.(com|org|net|dev|io|app|co|xyz|gov|edu)(\/|$)/i;
-            const fullUrlRegex = /^(http|https):\/\/[^ "]+$/i;
-            return fullUrlRegex.test(string) || domainRegex.test(string) || string.includes('://');
-        }
-        window.isValidUrl = isValidUrl; // Expose globally
-
-        /**
-         * Sets the developer status based on localStorage and updates UI.
-         * @param {boolean} updateThemeSelector - Whether to force a refresh of the theme selector.
+         * Checks the Dev Status on load and applies changes.
          */
         function checkDevStatus(updateThemeSelector = false) {
             if (isDevMode) {
                 devPanelDiv.classList.remove('hidden');
                 devStatusMessage.innerHTML = 'Status: <span class="text-green-500 font-bold">Activated (GOLD)</span>';
-
                 // Devs get 999999 points (Simulated infinite points)
                 window.userPoints = 999999; 
-
+                
                 if (updateThemeSelector) {
                     const goldenOption = themeSelector.querySelector('option[value="golden"]');
                     if (!goldenOption) {
@@ -1333,7 +1345,7 @@
                 
                 // Reset points from stored value if Dev Mode is off
                 window.userPoints = parseInt(localStorage.getItem('userPoints') || '100', 10);
-
+                
                 if (updateThemeSelector) {
                     const goldenOption = themeSelector.querySelector('option[value="golden"]');
                     if (goldenOption) {
@@ -1341,11 +1353,13 @@
                     }
                 }
             }
+            
             if (updateThemeSelector) {
                 renderShop(); // Re-render the shop to update points/buttons based on dev status
             }
         }
         window.checkDevStatus = checkDevStatus; // Expose globally
+
 
         /**
          * Attempts to activate Dev Mode with a custom ID. (NEW)
@@ -1353,7 +1367,7 @@
         function applyCustomId() {
             const input = document.getElementById('custom-dev-id-input');
             const id = input.value.trim().toUpperCase();
-
+            
             if (DEV_IDS.includes(id)) {
                 isDevMode = true;
                 localStorage.setItem('isDevMode', 'true');
@@ -1366,6 +1380,7 @@
         }
         window.applyCustomId = applyCustomId; // Expose globally
 
+
         /**
          * Opens the settings modal.
          */
@@ -1374,6 +1389,7 @@
             settingsModal.classList.remove('hidden');
             settingsOverlay.classList.remove('hidden');
         }
+        window.openSettings = openSettings; // Expose globally
 
         /**
          * Closes the settings modal.
@@ -1382,138 +1398,43 @@
             settingsModal.classList.add('hidden');
             settingsOverlay.classList.add('hidden');
         }
-        window.openSettings = openSettings; // Expose globally
         window.closeSettings = closeSettings; // Expose globally
 
         /**
-         * Loads and applies saved settings.
+         * Loads all user settings from local storage into the UI.
          */
         function loadSettings() {
-            // 1. User ID Display
-            userIdDisplay.textContent = window.appId || 'SIMULATED-USER-1337';
+            // Check Dev Status first to set points and unlock the Golden theme option
+            checkDevStatus(true);
+            
+            // User ID
+            let userId = localStorage.getItem('userId');
+            if (!userId) {
+                userId = Math.random().toString(36).substring(2, 10).toUpperCase();
+                localStorage.setItem('userId', userId);
+            }
+            userIdDisplay.textContent = userId;
 
-            // 2. Load Theme and Dev Status
-            checkDevStatus(true); // Must be called before setTheme
-            const savedTheme = localStorage.getItem('theme') || 'dark';
-            setTheme(savedTheme, false); // Do not re-save theme when loading
+            // Theme
+            setTheme(localStorage.getItem('theme') || 'dark', false); // Apply theme but don't re-save
 
-            // 3. Load Site View Preference
-            siteViewPreference = localStorage.getItem('siteViewPreference') || 'prompt';
-            siteViewSelector.value = siteViewPreference;
+            // Site View Preference
+            siteViewSelector.value = localStorage.getItem('siteViewPreference') || 'prompt';
+
+            // Render the shop
+            renderShop();
         }
 
-        /**
-         * Sets and applies the custom theme.
-         * @param {string} themeName - The name of the theme (e.g., 'dark', 'cyberpunk').
-         * @param {boolean} save - Whether to save to localStorage (default true).
-         */
-        function setTheme(themeName, save = true) {
-            // 1. Check ownership/permission
-            const isDefault = ['light', 'dark', 'monochrome'].includes(themeName);
-            const isOwned = ownedThemes.includes(themeName);
-            const isGolden = themeName === 'golden' && isDevMode;
-            const isPremiumTheme = themeName === PREMIUM_THEME_KEY && isPremium;
 
-            if (!isDefault && !isOwned && !isGolden && !isPremiumTheme) {
-                // Prevent setting a locked theme unless it's a default one
-                alert(`Theme "${themeName.charAt(0).toUpperCase() + themeName.slice(1)}" is locked. Please purchase it in the shop.`);
-                // Revert to the last saved theme
-                themeName = localStorage.getItem('theme') || 'dark';
-            }
-
-            // 2. Remove all theme classes
-            const allThemeClasses = ['dark-mode', 'monochrome-theme', 'golden-theme', PREMIUM_THEME_KEY + '-theme'];
-            Object.keys(SHOP_ITEMS).forEach(key => {
-                if (SHOP_ITEMS[key].type === 'theme') {
-                    allThemeClasses.push(SHOP_ITEMS[key].themeKey + '-theme');
-                }
-            });
-            document.body.classList.remove(...allThemeClasses);
-
-            // 3. Apply the chosen theme class
-            if (themeName === 'dark') {
-                document.body.classList.add('dark-mode');
-            } else if (themeName === 'monochrome') {
-                document.body.classList.add('monochrome-theme');
-            } else if (themeName === 'golden') {
-                document.body.classList.add('golden-theme');
-            } else if (themeName !== 'light') {
-                // All other themes use the structure [themeName]-theme
-                document.body.classList.add(themeName + '-theme');
-            }
-
-            // 4. Save
-            if (save) {
-                localStorage.setItem('theme', themeName);
-            }
-
-            // 5. Update selector (if available)
-            if (themeSelector) {
-                themeSelector.value = themeName;
-            }
-        }
-        window.setTheme = setTheme; // Expose globally
+        // --- SEARCH AND IFRAME LOGIC ---
 
         /**
-         * Saves the site view preference.
-         */
-        function saveSiteViewPreference(preference) {
-            siteViewPreference = preference;
-            localStorage.setItem('siteViewPreference', preference);
-        }
-        window.saveSiteViewPreference = saveSiteViewPreference; // Expose globally
-
-        // --- CLOCK AND TIMER LOGIC ---
-        
-        /**
-         * Updates the live time display in the header.
-         */
-        function updateClock() {
-            const now = new Date();
-            const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
-            document.getElementById('live-clock').textContent = timeString;
-        }
-
-        /**
-         * Sets a simple timer with a notification.
-         */
-        function setSimpleTimer() {
-            const timerInput = document.getElementById('timer-input');
-            const timerStatus = document.getElementById('timer-status');
-            const minutes = parseInt(timerInput.value, 10);
-
-            if (isNaN(minutes) || minutes <= 0) {
-                timerStatus.textContent = "Please enter a valid number of minutes.";
-                return;
-            }
-
-            // Clear any existing timer
-            clearTimeout(timerTimeout);
-
-            const ms = minutes * 60 * 1000;
-            timerStatus.textContent = `Timer set for ${minutes} minute${minutes > 1 ? 's' : ''}!`;
-            timerInput.value = '';
-
-            timerTimeout = setTimeout(() => {
-                // Play sound (Simulated)
-                console.log("Timer finished sound");
-                
-                const modalMessage = `⏰ Time's up! Your ${minutes} minute timer has finished.`;
-                alert(modalMessage); // Simple placeholder for alert replacement
-                timerStatus.textContent = "Timer finished.";
-            }, ms);
-        }
-        window.setSimpleTimer = setSimpleTimer; // Expose globally
-
-        // --- MAIN SEARCH LOGIC ---
-
-        /**
-         * Main function to handle the search process.
+         * Executes the search based on user input.
          */
         async function performSearch() {
             const query = searchInput.value.trim();
             if (!query) {
-                displayError("Please enter a search query or a website address.");
+                alert("Please enter a search query or a website address.");
                 return;
             }
 
@@ -1530,7 +1451,7 @@
             
             // Log the search query for Top Searches
             if (typeof window.logSearch === 'function') {
-                window.logSearch(query);
+                 window.logSearch(query);
             }
 
             // --- Step 2: Check for Direct URL Navigation ---
@@ -1558,12 +1479,12 @@
 
             // --- Step 3: Proceed with Mock Search (API disabled) ---
             await startLoadingEngine(query);
-
+            
             // Once loading is done, show the results
             try {
                 // Simulate processing time after loading (minimal delay)
-                await new Promise(resolve => setTimeout(resolve, 500)); 
-
+                await new Promise(resolve => setTimeout(resolve, 500));
+                
                 // Use the mock response
                 displayResults(MOCK_SUMMARY, MOCK_SOURCES);
                 
@@ -1595,49 +1516,46 @@
             searchInput.value = queryText;
             performSearch();
         }
-
+        
         /**
-         * Handles navigating to a URL either in a new tab or internally.
+         * Navigates to a URL either in a new tab or internally in the iframe.
+         * @param {boolean} inNewTab - If true, opens a new tab. Otherwise, uses the internal iframe.
          */
         function navigateToUrl(inNewTab) {
-            let url = searchInput.value.trim();
-            if (!url) return;
-
-            // Ensure URL has a protocol if missing
-            if (!url.match(/^(http|https):\/\//i)) {
-                url = 'https://' + url;
-            }
-
+            const url = searchInput.value.trim();
+            const normalizedUrl = url.startsWith('http') ? url : `https://${url}`;
+            
+            searchFormContainer.classList.add('hidden');
+            directLinkDiv.classList.add('hidden');
+            resultsDiv.classList.add('hidden');
+            iframeViewerDiv.classList.remove('hidden');
+            
             if (inNewTab) {
-                window.open(url, '_blank', 'noopener, noreferrer');
-                // Hide prompt after opening
-                directLinkDiv.classList.add('hidden');
+                window.open(normalizedUrl, '_blank');
+                // Immediately go back to search view since the user left the app
+                window.resetToSearch();
             } else {
-                // Attempt internal embedding
-                searchFormContainer.classList.add('hidden');
-                resultsDiv.classList.add('hidden');
-                errorDiv.classList.add('hidden');
-                devPanelDiv.classList.add('hidden');
-                directLinkDiv.classList.add('hidden');
-                iframeViewerDiv.classList.remove('hidden');
-                externalIframe.src = url;
-                externalLinkRetry.href = url;
+                // Internal Iframe View
+                externalIframe.src = normalizedUrl;
+                document.body.classList.add('fullscreen-active'); // Apply fullscreen styling
+                mainContentCard.classList.add('fullscreen-mode');
                 
-                // Check if the iframe loaded (crude check via timeout)
-                // This is a simulation, as real cross-origin blocking is instantaneous.
-                document.getElementById('iframe-fallback').style.opacity = '0';
+                // Fallback timer in case the iframe fails to load (due to X-Frame-Options or other headers)
                 const timer = setTimeout(() => {
-                    // If the src is still 'about:blank' or a CORS error occurred (simulated)
-                    // We simply display the fallback overlay to the user
-                    document.getElementById('iframe-fallback').style.opacity = '1';
+                    // Check if the iframe content is still 'about:blank' or if a load event was not detected
+                    // Note: Direct cross-origin check is blocked, so we assume failure if no content is visible after a timeout.
+                    document.getElementById('iframe-fallback').style.opacity = '1'; 
                 }, 3000); // 3 seconds to check loading
-                
+
                 // Clear state when the user goes back to search
                 window.resetToSearch = () => {
                     clearTimeout(timer); // Prevent fallback from appearing late
                     iframeViewerDiv.classList.add('hidden');
                     searchFormContainer.classList.remove('hidden');
-                    document.getElementById('iframe-fallback').style.opacity = '0'; // Reset state
+                    document.getElementById('iframe-fallback').style.opacity = '0'; 
+                    document.body.classList.remove('fullscreen-active'); 
+                    mainContentCard.classList.remove('fullscreen-mode');
+                    // Reset state
                     externalIframe.src = 'about:blank'; // Clear content
                     searchInput.focus();
                 };
@@ -1653,13 +1571,14 @@
             navigateToUrl(false);
         }
         window.openGameInternally = openGameInternally; // Expose globally
-        
+
+
         /**
          * Controls the custom loading engine animation and time.
          */
         async function startLoadingEngine(query) {
             loadingEngineOverlay.classList.remove('hidden');
-            
+
             // 1. Determine load time (Premium benefit)
             const totalLoadTime = isPremium ? PREMIUM_LOAD_TIME : STANDARD_LOAD_TIME;
             
@@ -1672,71 +1591,61 @@
             loadingTipP.textContent = randomTip;
 
             // 4. Emoji Animation (3 seconds)
-            let emojiIndex = 0;
-            loadingEmojiDiv.textContent = EMOJIS[emojiIndex];
+            let emojiCounter = 0;
             loadingEmojiDiv.classList.add('animate-pulse-once');
-            
-            clearInterval(emojiInterval); // Clear any old intervals
             emojiInterval = setInterval(() => {
-                loadingEmojiDiv.classList.remove('animate-pulse-once');
-                void loadingEmojiDiv.offsetWidth; // Force reflow/repaint to restart animation
-                emojiIndex = (emojiIndex + 1) % EMOJIS.length;
-                loadingEmojiDiv.textContent = EMOJIS[emojiIndex];
+                loadingEmojiDiv.textContent = EMOJIS[emojiCounter % EMOJIS.length];
+                loadingEmojiDiv.classList.remove('animate-pulse-once'); // Remove before re-adding
+                void loadingEmojiDiv.offsetWidth; // Trigger reflow
                 loadingEmojiDiv.classList.add('animate-pulse-once');
-            }, 3000);
+
+                emojiCounter++;
+            }, 500); // Change emoji every 0.5 seconds for the first part of the load
 
             // 5. Countdown and Progress Bar
-            let currentCountdown = totalLoadTime;
-            const progressIncrement = 100 / (totalLoadTime * 10); // 10 increments per second (100ms)
+            let currentTime = totalLoadTime;
+            let totalTimeMs = totalLoadTime * 1000;
+            let startTime = Date.now();
+            
             loadCountdownSpan.textContent = `${totalLoadTime}s`;
             loadProgressBar.style.width = '0%';
-            
-            let currentProgress = 0;
-            clearInterval(countdownInterval); // Clear any old intervals
-            countdownInterval = setInterval(() => {
-                currentCountdown -= 0.1;
-                currentProgress += progressIncrement;
 
-                if (currentCountdown <= 0) {
-                    currentCountdown = 0;
-                    currentProgress = 100;
+            countdownInterval = setInterval(() => {
+                const elapsed = Date.now() - startTime;
+                const remaining = Math.max(0, totalTimeMs - elapsed);
+                
+                // Update countdown text
+                const secondsRemaining = Math.ceil(remaining / 1000);
+                loadCountdownSpan.textContent = `${secondsRemaining}s`;
+
+                // Update progress bar
+                let progress = (elapsed / totalTimeMs) * 100;
+                loadProgressBar.style.width = `${Math.min(100, progress)}%`;
+
+                if (remaining <= 0) {
                     clearInterval(countdownInterval);
                 }
-
-                loadCountdownSpan.textContent = `${Math.ceil(currentCountdown)}s`;
-                loadProgressBar.style.width = `${Math.min(100, currentProgress)}%`;
             }, 100);
 
-            // 6. Set the timeout for when the loading is 'done'
-            return new Promise(resolve => {
-                clearTimeout(loadTimeout); // Clear any old timeouts
+            // 6. Wait for the total load time
+            await new Promise(resolve => {
                 loadTimeout = setTimeout(() => {
-                    stopLoadingEngine();
+                    clearInterval(emojiInterval);
+                    clearInterval(countdownInterval);
+                    loadingEngineOverlay.classList.add('hidden');
                     resolve();
-                }, totalLoadTime * 1000);
+                }, totalTimeMs);
             });
         }
-
-        /**
-         * Stops the custom loading engine animation and hides the overlay.
-         */
-        function stopLoadingEngine() {
-            clearInterval(countdownInterval);
-            clearInterval(emojiInterval);
-            clearTimeout(loadTimeout);
-            loadingEngineOverlay.classList.add('hidden');
-        }
+        window.startLoadingEngine = startLoadingEngine; // Expose globally
 
         /**
          * Displays the search results summary and sources.
          */
         function displayResults(summary, sources) {
-            summaryTextDiv.innerHTML = summary;
+            summaryTextDiv.innerHTML = summary.replace(/\n/g, '<br>'); // Handle newlines
             resultsDiv.classList.remove('hidden');
-
-            // NEW: Reset and enable feedback state
-            feedbackMessage.classList.add('hidden');
-            feedbackSection.classList.remove('hidden');
+            // Re-enable feedback buttons
             feedbackSection.querySelectorAll('button').forEach(btn => btn.disabled = false);
 
             sourcesList.innerHTML = '';
@@ -1745,9 +1654,9 @@
                     const listItem = document.createElement('li');
                     listItem.className = 'flex items-start space-x-2';
                     listItem.innerHTML = `
-                        <svg class="w-4 h-4 mt-1 flex-shrink-0 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.819l5.656-5.656a4 4 0 105.656 5.656l-4 4"></path></svg>
-                        <a href="${source.uri}" target="_blank" rel="noopener noreferrer" class="truncate">
-                            ${source.title} <span class="text-xs text-gray-400">(${new URL(source.uri).hostname})</span>
+                        <svg class="w-4 h-4 mt-1 flex-shrink-0 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        <a href="${source.url}" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:underline transition duration-300 dark:text-indigo-400">
+                            ${source.title}
                         </a>
                     `;
                     sourcesList.appendChild(listItem);
@@ -1768,6 +1677,89 @@
             iframeViewerDiv.classList.add('hidden'); 
             searchFormContainer.classList.remove('hidden'); 
         }
+
+        // --- FIREBASE MOCK: TOP SEARCHES LOGIC ---
+        /**
+         * Logs a successful, non-URL search query to Firestore.
+         */
+        window.logSearch = async function(query) {
+            if (!db || query.length < 5) return;
+            try {
+                const searchesCollectionPath = CHAT_STORAGE_KEY.replace('chat_messages', 'top_searches');
+                 // Use a simple mock add operation
+                if (db.collection) { 
+                    await db.collection(searchesCollectionPath).add({ 
+                        query: query, 
+                        timestamp: Date.now() 
+                    });
+                }
+            } catch (error) {
+                console.error("Error logging search to Firestore:", error);
+            }
+        }
+
+        /**
+         * Fetches and displays the most popular searches from Firestore.
+         */
+        window.loadTopSearches = async function() {
+            if (!db) { 
+                document.getElementById('no-searches-message').classList.remove('hidden');
+                return;
+            }
+            const topSearchesDiv = document.getElementById('top-searches');
+            const noSearchesMessage = document.getElementById('no-searches-message');
+            const loadingSpan = document.getElementById('loading-searches');
+            loadingSpan.classList.remove('hidden');
+            topSearchesDiv.innerHTML = '';
+            noSearchesMessage.classList.add('hidden');
+
+            try {
+                const searchesCollectionPath = CHAT_STORAGE_KEY.replace('chat_messages', 'top_searches');
+                let querySnapshot;
+
+                // Mock fetching sorted and limited results (based on count implemented in the mock)
+                if (db.collection) { 
+                    const q = db.collection(searchesCollectionPath).orderBy('timestamp', 'desc').limit(5);
+                    querySnapshot = await q.get();
+                }
+
+                const searchCounts = {};
+
+                if (querySnapshot && querySnapshot.docs.length > 0) {
+                     querySnapshot.docs.forEach(doc => {
+                         const data = doc.data();
+                         // The mock returns pre-aggregated counts for simplicity
+                         searchCounts[data.query] = data.count; 
+                     });
+
+                     const uniqueQueries = Object.keys(searchCounts)
+                        .sort((a, b) => searchCounts[b] - searchCounts[a])
+                        .slice(0, 5); // Display top 5 unique queries
+
+                    if (uniqueQueries.length > 0) {
+                        uniqueQueries.forEach(queryText => {
+                             const button = document.createElement('button');
+                             button.className = 'px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium hover:bg-blue-200 transition duration-300 dark:bg-gray-700 dark:text-blue-400 dark:hover:bg-gray-600 shadow-sm';
+                             button.textContent = queryText;
+                             button.onclick = () => window.performQuickSearch(queryText);
+                             topSearchesDiv.appendChild(button);
+                        });
+                    } else {
+                        noSearchesMessage.classList.remove('hidden');
+                    }
+                } else {
+                    noSearchesMessage.classList.remove('hidden');
+                }
+
+            } catch (error) {
+                console.error("Error loading top searches:", error);
+                noSearchesMessage.classList.remove('hidden');
+            } finally {
+                loadingSpan.classList.add('hidden');
+            }
+        }
+        window.loadTopSearches = loadTopSearches;
+
 
         // Set initial focus and initialize modes
         window.onload = () => {
